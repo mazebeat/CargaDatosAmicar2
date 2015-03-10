@@ -1,0 +1,25 @@
+package cl.intelidata.amicar.referencias;
+
+public class Texto {
+	// Cabeceras
+	public static final String CABECERA_ARCHIVO_DIARIO = "RUT_CLIENTE|EMAIL_CLIENTE|NOMBRE_LOCAL|NOMBRE_VENDEDOR|RUT_VENDEDOR";
+	public static final String CABECERA_ARCHIVO_MENSUAL = "LOCAL|EJECUTIVO|CORREO";
+
+	// Posiciones de los datos Mensuales
+	public static final int A_M_LOCAL = 0;
+	public static final int A_M_EJECUTIVO = 1;
+	public static final int A_M_CORREO_EJECUTIVO = 2;
+	// Posiciones de los datos Diarios
+	public static final int A_D_RUT_CLIENTE = 0;
+	public static final int A_D_CORREO_CLIENTE = 1;
+	public static final int A_D_NOMBRE_LOCAL = 2;
+	public static final int A_D_NOMBRE_VENDEDOR = 3;
+	public static final int A_D_RUT_VENDEDOR = 4;
+
+	// Mails
+
+	public static final String COTIZACION = "cotizacion";
+	public static final String CLIENTE = "cliente";
+	public static final String LLAVE_INICIO = "001";
+	public static final String LLAVE = "amicarCotizante";
+}

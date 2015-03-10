@@ -1,0 +1,29 @@
+package cl.intelidata.amicar.referencias;
+
+import cl.intelidata.amicar.beans.Cifrador;
+import cl.intelidata.conf.Configuracion;
+
+public class URL {
+
+	public static final String AMICAR = "http://www.amicar.cl";
+
+	public static String cliente(String strProceso, String strCliente) {
+		String respuesta = AMICAR;
+		String dominio = Configuracion.getInstance().getInitParameter("dominioClick");
+
+		if ((strProceso != null)) {
+			respuesta = dominio + "?" + Texto.COTIZACION + "=" + Cifrador.encriptar(Texto.LLAVE, strProceso) + "&" + Texto.CLIENTE + "=" + Cifrador.encriptar(Texto.LLAVE, strCliente);
+		}
+		return respuesta;
+	}
+
+	public static String clienteLectura(String strProceso, String strCliente) {
+		String respuesta = AMICAR;
+		String dominio = Configuracion.getInstance().getInitParameter("dominioLectura");
+
+		if ((strProceso != null)) {
+			respuesta = dominio + "?" + Texto.COTIZACION + "=" + Cifrador.encriptar(Texto.LLAVE, strProceso) + "&" + Texto.CLIENTE + "=" + Cifrador.encriptar(Texto.LLAVE, strCliente);
+		}
+		return respuesta;
+	}
+}

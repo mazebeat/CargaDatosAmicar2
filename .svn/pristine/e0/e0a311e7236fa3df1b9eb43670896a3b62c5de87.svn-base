@@ -1,0 +1,25 @@
+package cl.intelidata.amicar.bd;
+
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+/**
+ * Clientes entity. @author MyEclipse Persistence Tools
+ */
+@Entity
+@Table(name = "clientes", catalog = "amicarcotizante")
+public class Clientes extends AbstractClientes implements java.io.Serializable {
+
+	// Constructors
+
+	/** default constructor */
+	public Clientes() {
+	}
+
+	/** full constructor */
+	public Clientes(String rutCliente, String emailCliente, String nombreCliente, String sexoCliente, String fonoCliente, String automovilCliente, Set<Proceso> procesos) {
+		super(rutCliente, emailCliente, nombreCliente, sexoCliente, fonoCliente, automovilCliente, procesos);
+	}
+
+}
