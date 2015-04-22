@@ -1,7 +1,6 @@
 package cl.intelidata.amicar.bd;
 
 import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -18,18 +17,27 @@ public class Proceso extends AbstractProceso implements java.io.Serializable {
 	public Proceso() {
 	}
 
-	/** minimal constructor */
-	public Proceso(Ejecutivos ejecutivos, Clientesdiario clientesDiario,
+	/** minimal constructor
+     * @param ejecutivos
+     * @param clientesdiario
+     * @param vendedores */
+	public Proceso(Ejecutivos ejecutivos, Clientesdiario clientesdiario,
 			Vendedores vendedores) {
-		super(ejecutivos, clientesDiario, vendedores);
+		super(ejecutivos, clientesdiario, vendedores);
 	}
 
-	/** full constructor */
-	public Proceso(Ejecutivos ejecutivos, Clientesdiario clientesDiario,
+	/** full constructor
+     * @param ejecutivos
+     * @param clientesdiario
+     * @param vendedores
+     * @param fechaEnvio
+     * @param fechaAperturaMail
+     * @param fechaClickLink */
+	public Proceso(Ejecutivos ejecutivos, Clientesdiario clientesdiario,
 			Vendedores vendedores, Timestamp fechaEnvio,
 			Timestamp fechaAperturaMail, Timestamp fechaClickLink) {
-		super(ejecutivos, clientesDiario, vendedores, fechaEnvio,
-				fechaAperturaMail, fechaClickLink);
+		super(ejecutivos, clientesdiario, vendedores, fechaEnvio, fechaAperturaMail,
+				fechaClickLink);
 	}
 
 }

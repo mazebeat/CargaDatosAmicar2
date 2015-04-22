@@ -18,8 +18,16 @@ import javax.persistence.Query;
  */
 public class VendedoresDAO implements IVendedoresDAO {
 	// property constants
-	public static final String RUT_VENDEDOR = "rutVendedor";
-	public static final String NOMBRE_VENDEDOR = "nombreVendedor";
+
+    /**
+     *
+     */
+    	public static final String RUT_VENDEDOR = "rutVendedor";
+
+    /**
+     *
+     */
+    public static final String NOMBRE_VENDEDOR = "nombreVendedor";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -125,7 +133,12 @@ public class VendedoresDAO implements IVendedoresDAO {
 		}
 	}
 
-	public Vendedores findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Vendedores findById(Integer id) {
 		EntityManagerHelper.log("finding Vendedores instance with id: " + id,
 				Level.INFO, null);
 		try {
@@ -182,12 +195,24 @@ public class VendedoresDAO implements IVendedoresDAO {
 		}
 	}
 
-	public List<Vendedores> findByRutVendedor(Object rutVendedor,
+    /**
+     *
+     * @param rutVendedor
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Vendedores> findByRutVendedor(Object rutVendedor,
 			int... rowStartIdxAndCount) {
 		return findByProperty(RUT_VENDEDOR, rutVendedor, rowStartIdxAndCount);
 	}
 
-	public List<Vendedores> findByNombreVendedor(Object nombreVendedor,
+    /**
+     *
+     * @param nombreVendedor
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Vendedores> findByNombreVendedor(Object nombreVendedor,
 			int... rowStartIdxAndCount) {
 		return findByProperty(NOMBRE_VENDEDOR, nombreVendedor,
 				rowStartIdxAndCount);

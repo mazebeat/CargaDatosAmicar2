@@ -1,17 +1,20 @@
 package cl.intelidata.amicar.referencias;
 
-import cl.intelidata.amicar.beans.MCrypt;
-import cl.intelidata.conf.Configuracion;
-import cl.intelidata.amicar.beans.MessageUtils;
+import static cl.intelidata.amicar.conf.Configuracion.logger;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import cl.intelidata.amicar.beans.MCrypt;
+import cl.intelidata.amicar.conf.Configuracion;
+
+
 public class URL {
 
-	public static final String AMICAR = "http://www.amicar.cl";
+	
 
 	public static String cliente(String strProceso, String strCliente) {
-		String respuesta = AMICAR;
+		String respuesta = Texto.AMICAR;
 		String dominioClick = Configuracion.getInstance().getInitParameter("dominioClick");
 
 		if ((strProceso != null)) {
@@ -22,17 +25,17 @@ public class URL {
 				params.put(Texto.CLIENTE, MCrypt.bytesToHex(mcrypt.encrypt(strCliente)));
 				params.put(Texto.COTIZACION, MCrypt.bytesToHex(mcrypt.encrypt(strProceso)));
 
-				MessageUtils.info("Generando URL click");
+				logger.info("Generando URL click");
 				respuesta = fullURL(dominioClick, params);
 			} catch (Exception e) {
-				MessageUtils.error("Error URL cliente: " + e.getMessage());
+				logger.error("Error URL cliente: " + e.getMessage());
 			}
 		}
 		return respuesta;
 	}
 
 	public static String clienteLectura(String strProceso, String strCliente) {
-		String respuesta = AMICAR;
+		String respuesta = Texto.AMICAR;
 		String dominio = Configuracion.getInstance().getInitParameter("dominioLectura");
 
 		if ((strProceso != null)) {
@@ -43,10 +46,10 @@ public class URL {
 				params.put(Texto.CLIENTE, MCrypt.bytesToHex(mcrypt.encrypt(strCliente)));
 				params.put(Texto.COTIZACION, MCrypt.bytesToHex(mcrypt.encrypt(strProceso)));
 
-				MessageUtils.info("Generando URL lectura");
+				logger.info("Generando URL lectura");
 				respuesta = fullURL(dominio, params);
 			} catch (Exception e) {
-				MessageUtils.error("Error URL clienteLectura: " + e.getMessage());
+				logger.error("Error URL clienteLectura: " + e.getMessage());
 			}
 		}
 		return respuesta;

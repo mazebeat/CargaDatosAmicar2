@@ -79,7 +79,12 @@ public interface ICorreoserrorformatoDAO {
 	 */
 	public Correoserrorformato update(Correoserrorformato entity);
 
-	public Correoserrorformato findById(Integer id);
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Correoserrorformato findById(Integer id);
 
 	/**
 	 * Find all Correoserrorformato entities with a specific property value.
@@ -98,28 +103,112 @@ public interface ICorreoserrorformatoDAO {
 	public List<Correoserrorformato> findByProperty(String propertyName,
 			Object value, int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByRutCliente(Object rutCliente,
+    /**
+     *
+     * @param rutCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByRutCliente(Object rutCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByEmailCliente(Object emailCliente,
+    /**
+     *
+     * @param emailCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByEmailCliente(Object emailCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByNombreCliente(Object nombreCliente,
+    /**
+     *
+     * @param nombreCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByNombreCliente(Object nombreCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findBySexoCliente(Object sexoCliente,
+    /**
+     *
+     * @param fonoCelular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByFonoCelular(Object fonoCelular,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByFonoCliente(Object fonoCliente,
+    /**
+     *
+     * @param fonoComercial
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByFonoComercial(Object fonoComercial,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByAutomovilCliente(
-			Object automovilCliente, int... rowStartIdxAndCount);
+    /**
+     *
+     * @param fonoParticular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByFonoParticular(
+			Object fonoParticular, int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByIdGrupo(Object idGrupo,
+    /**
+     *
+     * @param marcaAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByMarcaAuto(Object marcaAuto,
 			int... rowStartIdxAndCount);
 
-	public List<Correoserrorformato> findByIdBody(Object idBody,
+    /**
+     *
+     * @param modeloAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByModeloAuto(Object modeloAuto,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param valorAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByValorAuto(Object valorAuto,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param idGrupo
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByIdGrupo(Object idGrupo,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param idBody
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByIdBody(Object idBody,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param nombreJrn
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Correoserrorformato> findByNombreJrn(Object nombreJrn,
 			int... rowStartIdxAndCount);
 
 	/**

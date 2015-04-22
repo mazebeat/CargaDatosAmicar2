@@ -17,9 +17,21 @@ import javax.persistence.Query;
  */
 public class LogDAO implements ILogDAO {
 	// property constants
-	public static final String ID_VENDEDOR = "idVendedor";
-	public static final String ID_CLIENTE = "idCliente";
-	public static final String ID_EJECUTIVO = "idEjecutivo";
+
+    /**
+     *
+     */
+    	public static final String ID_VENDEDOR = "idVendedor";
+
+    /**
+     *
+     */
+    public static final String ID_CLIENTE = "idCliente";
+
+    /**
+     *
+     */
+    public static final String ID_EJECUTIVO = "idEjecutivo";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -122,7 +134,12 @@ public class LogDAO implements ILogDAO {
 		}
 	}
 
-	public Log findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Log findById(Integer id) {
 		EntityManagerHelper.log("finding Log instance with id: " + id,
 				Level.INFO, null);
 		try {
@@ -179,17 +196,35 @@ public class LogDAO implements ILogDAO {
 		}
 	}
 
-	public List<Log> findByIdVendedor(Object idVendedor,
+    /**
+     *
+     * @param idVendedor
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdVendedor(Object idVendedor,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_VENDEDOR, idVendedor, rowStartIdxAndCount);
 	}
 
-	public List<Log> findByIdCliente(Object idCliente,
+    /**
+     *
+     * @param idCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdCliente(Object idCliente,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_CLIENTE, idCliente, rowStartIdxAndCount);
 	}
 
-	public List<Log> findByIdEjecutivo(Object idEjecutivo,
+    /**
+     *
+     * @param idEjecutivo
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdEjecutivo(Object idEjecutivo,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_EJECUTIVO, idEjecutivo, rowStartIdxAndCount);
 	}

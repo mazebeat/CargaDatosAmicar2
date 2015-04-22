@@ -77,7 +77,12 @@ public interface ILogDAO {
 	 */
 	public Log update(Log entity);
 
-	public Log findById(Integer id);
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Log findById(Integer id);
 
 	/**
 	 * Find all Log entities with a specific property value.
@@ -96,13 +101,31 @@ public interface ILogDAO {
 	public List<Log> findByProperty(String propertyName, Object value,
 			int... rowStartIdxAndCount);
 
-	public List<Log> findByIdVendedor(Object idVendedor,
+    /**
+     *
+     * @param idVendedor
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdVendedor(Object idVendedor,
 			int... rowStartIdxAndCount);
 
-	public List<Log> findByIdCliente(Object idCliente,
+    /**
+     *
+     * @param idCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdCliente(Object idCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Log> findByIdEjecutivo(Object idEjecutivo,
+    /**
+     *
+     * @param idEjecutivo
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Log> findByIdEjecutivo(Object idEjecutivo,
 			int... rowStartIdxAndCount);
 
 	/**

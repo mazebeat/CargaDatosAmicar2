@@ -16,12 +16,15 @@ public class Body extends AbstractBody implements java.io.Serializable {
 	public Body() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idBody */
 	public Body(Integer idBody) {
 		super(idBody);
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idBody
+     * @param bodyNombre */
 	public Body(Integer idBody, String bodyNombre) {
 		super(idBody, bodyNombre);
 	}

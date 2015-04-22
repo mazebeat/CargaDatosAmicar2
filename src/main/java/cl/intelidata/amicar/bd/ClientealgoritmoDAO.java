@@ -17,8 +17,16 @@ import javax.persistence.Query;
  */
 public class ClientealgoritmoDAO implements IClientealgoritmoDAO {
 	// property constants
-	public static final String ID_CLIENTE = "idCliente";
-	public static final String ID_BODY = "idBody";
+
+    /**
+     *
+     */
+    	public static final String ID_CLIENTE = "idCliente";
+
+    /**
+     *
+     */
+    public static final String ID_BODY = "idBody";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -126,7 +134,12 @@ public class ClientealgoritmoDAO implements IClientealgoritmoDAO {
 		}
 	}
 
-	public Clientealgoritmo findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Clientealgoritmo findById(Integer id) {
 		EntityManagerHelper.log("finding Clientealgoritmo instance with id: "
 				+ id, Level.INFO, null);
 		try {
@@ -185,12 +198,24 @@ public class ClientealgoritmoDAO implements IClientealgoritmoDAO {
 		}
 	}
 
-	public List<Clientealgoritmo> findByIdCliente(Object idCliente,
+    /**
+     *
+     * @param idCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientealgoritmo> findByIdCliente(Object idCliente,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_CLIENTE, idCliente, rowStartIdxAndCount);
 	}
 
-	public List<Clientealgoritmo> findByIdBody(Object idBody,
+    /**
+     *
+     * @param idBody
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientealgoritmo> findByIdBody(Object idBody,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_BODY, idBody, rowStartIdxAndCount);
 	}

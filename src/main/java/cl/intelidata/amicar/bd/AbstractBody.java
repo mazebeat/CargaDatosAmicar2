@@ -22,34 +22,54 @@ public abstract class AbstractBody implements java.io.Serializable {
 	public AbstractBody() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idBody */
 	public AbstractBody(Integer idBody) {
 		this.idBody = idBody;
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idBody
+     * @param bodyNombre */
 	public AbstractBody(Integer idBody, String bodyNombre) {
 		this.idBody = idBody;
 		this.bodyNombre = bodyNombre;
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@Column(name = "idBody", unique = true, nullable = false)
 	public Integer getIdBody() {
 		return this.idBody;
 	}
 
-	public void setIdBody(Integer idBody) {
+    /**
+     *
+     * @param idBody
+     */
+    public void setIdBody(Integer idBody) {
 		this.idBody = idBody;
 	}
 
-	@Column(name = "bodyNombre", length = 45)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "bodyNombre", length = 45)
 	public String getBodyNombre() {
 		return this.bodyNombre;
 	}
 
-	public void setBodyNombre(String bodyNombre) {
+    /**
+     *
+     * @param bodyNombre
+     */
+    public void setBodyNombre(String bodyNombre) {
 		this.bodyNombre = bodyNombre;
 	}
 

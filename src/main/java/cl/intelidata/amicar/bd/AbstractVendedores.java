@@ -34,12 +34,17 @@ public abstract class AbstractVendedores implements java.io.Serializable {
 	public AbstractVendedores() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param locales */
 	public AbstractVendedores(Locales locales) {
 		this.locales = locales;
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param locales
+     * @param procesos
+     * @param rutVendedor
+     * @param nombreVendedor */
 	public AbstractVendedores(Locales locales, String rutVendedor,
 			String nombreVendedor, Set<Proceso> procesos) {
 		this.locales = locales;
@@ -49,51 +54,92 @@ public abstract class AbstractVendedores implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "idVendedor", unique = true, nullable = false)
 	public Integer getIdVendedor() {
 		return this.idVendedor;
 	}
 
-	public void setIdVendedor(Integer idVendedor) {
+    /**
+     *
+     * @param idVendedor
+     */
+    public void setIdVendedor(Integer idVendedor) {
 		this.idVendedor = idVendedor;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    /**
+     *
+     * @return
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "locales_idLocal", nullable = false)
 	public Locales getLocales() {
 		return this.locales;
 	}
 
-	public void setLocales(Locales locales) {
+    /**
+     *
+     * @param locales
+     */
+    public void setLocales(Locales locales) {
 		this.locales = locales;
 	}
 
-	@Column(name = "rutVendedor", length = 12)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "rutVendedor", length = 12)
 	public String getRutVendedor() {
 		return this.rutVendedor;
 	}
 
-	public void setRutVendedor(String rutVendedor) {
+    /**
+     *
+     * @param rutVendedor
+     */
+    public void setRutVendedor(String rutVendedor) {
 		this.rutVendedor = rutVendedor;
 	}
 
-	@Column(name = "nombreVendedor", length = 100)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "nombreVendedor", length = 100)
 	public String getNombreVendedor() {
 		return this.nombreVendedor;
 	}
 
-	public void setNombreVendedor(String nombreVendedor) {
+    /**
+     *
+     * @param nombreVendedor
+     */
+    public void setNombreVendedor(String nombreVendedor) {
 		this.nombreVendedor = nombreVendedor;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "vendedores")
+    /**
+     *
+     * @return
+     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "vendedores")
 	public Set<Proceso> getProcesos() {
 		return this.procesos;
 	}
 
-	public void setProcesos(Set<Proceso> procesos) {
+    /**
+     *
+     * @param procesos
+     */
+    public void setProcesos(Set<Proceso> procesos) {
 		this.procesos = procesos;
 	}
 

@@ -26,12 +26,18 @@ public abstract class AbstractLog implements java.io.Serializable {
 	public AbstractLog() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idlog */
 	public AbstractLog(Integer idlog) {
 		this.idlog = idlog;
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idlog
+     * @param idCliente
+     * @param idVendedor
+     * @param idEjecutivo
+     * @param fechaLog */
 	public AbstractLog(Integer idlog, Integer idVendedor, Integer idCliente,
 			Integer idEjecutivo, Timestamp fechaLog) {
 		this.idlog = idlog;
@@ -42,49 +48,90 @@ public abstract class AbstractLog implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@Column(name = "idlog", unique = true, nullable = false)
 	public Integer getIdlog() {
 		return this.idlog;
 	}
 
-	public void setIdlog(Integer idlog) {
+    /**
+     *
+     * @param idlog
+     */
+    public void setIdlog(Integer idlog) {
 		this.idlog = idlog;
 	}
 
-	@Column(name = "idVendedor")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "idVendedor")
 	public Integer getIdVendedor() {
 		return this.idVendedor;
 	}
 
-	public void setIdVendedor(Integer idVendedor) {
+    /**
+     *
+     * @param idVendedor
+     */
+    public void setIdVendedor(Integer idVendedor) {
 		this.idVendedor = idVendedor;
 	}
 
-	@Column(name = "idCliente")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "idCliente")
 	public Integer getIdCliente() {
 		return this.idCliente;
 	}
 
-	public void setIdCliente(Integer idCliente) {
+    /**
+     *
+     * @param idCliente
+     */
+    public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
 
-	@Column(name = "idEjecutivo")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "idEjecutivo")
 	public Integer getIdEjecutivo() {
 		return this.idEjecutivo;
 	}
 
-	public void setIdEjecutivo(Integer idEjecutivo) {
+    /**
+     *
+     * @param idEjecutivo
+     */
+    public void setIdEjecutivo(Integer idEjecutivo) {
 		this.idEjecutivo = idEjecutivo;
 	}
 
-	@Column(name = "fechaLog", length = 19)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaLog", length = 19)
 	public Timestamp getFechaLog() {
 		return this.fechaLog;
 	}
 
-	public void setFechaLog(Timestamp fechaLog) {
+    /**
+     *
+     * @param fechaLog
+     */
+    public void setFechaLog(Timestamp fechaLog) {
 		this.fechaLog = fechaLog;
 	}
 

@@ -78,7 +78,12 @@ public interface ILocalesDAO {
 	 */
 	public Locales update(Locales entity);
 
-	public Locales findById(Integer id);
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Locales findById(Integer id);
 
 	/**
 	 * Find all Locales entities with a specific property value.
@@ -97,7 +102,13 @@ public interface ILocalesDAO {
 	public List<Locales> findByProperty(String propertyName, Object value,
 			int... rowStartIdxAndCount);
 
-	public List<Locales> findByNombreLocal(Object nombreLocal,
+    /**
+     *
+     * @param nombreLocal
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Locales> findByNombreLocal(Object nombreLocal,
 			int... rowStartIdxAndCount);
 
 	/**

@@ -37,12 +37,19 @@ public abstract class AbstractEjecutivos implements java.io.Serializable {
 	public AbstractEjecutivos() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param locales */
 	public AbstractEjecutivos(Locales locales) {
 		this.locales = locales;
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param locales
+     * @param nombreEjecutivo
+     * @param correoEjecutivo
+     * @param fechaIngreso
+     * @param fechaModificacion
+     * @param procesos */
 	public AbstractEjecutivos(Locales locales, String nombreEjecutivo,
 			String correoEjecutivo, Timestamp fechaIngreso,
 			String fechaModificacion, Set<Proceso> procesos) {
@@ -55,69 +62,126 @@ public abstract class AbstractEjecutivos implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "idEjecutivo", unique = true, nullable = false)
 	public Integer getIdEjecutivo() {
 		return this.idEjecutivo;
 	}
 
-	public void setIdEjecutivo(Integer idEjecutivo) {
+    /**
+     *
+     * @param idEjecutivo
+     */
+    public void setIdEjecutivo(Integer idEjecutivo) {
 		this.idEjecutivo = idEjecutivo;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    /**
+     *
+     * @return
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "locales_idLocal1", nullable = false)
 	public Locales getLocales() {
 		return this.locales;
 	}
 
-	public void setLocales(Locales locales) {
+    /**
+     *
+     * @param locales
+     */
+    public void setLocales(Locales locales) {
 		this.locales = locales;
 	}
 
-	@Column(name = "nombreEjecutivo", length = 100)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "nombreEjecutivo", length = 100)
 	public String getNombreEjecutivo() {
 		return this.nombreEjecutivo;
 	}
 
-	public void setNombreEjecutivo(String nombreEjecutivo) {
+    /**
+     *
+     * @param nombreEjecutivo
+     */
+    public void setNombreEjecutivo(String nombreEjecutivo) {
 		this.nombreEjecutivo = nombreEjecutivo;
 	}
 
-	@Column(name = "correoEjecutivo", length = 45)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "correoEjecutivo", length = 45)
 	public String getCorreoEjecutivo() {
 		return this.correoEjecutivo;
 	}
 
-	public void setCorreoEjecutivo(String correoEjecutivo) {
+    /**
+     *
+     * @param correoEjecutivo
+     */
+    public void setCorreoEjecutivo(String correoEjecutivo) {
 		this.correoEjecutivo = correoEjecutivo;
 	}
 
-	@Column(name = "fechaIngreso", length = 19)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaIngreso", length = 19)
 	public Timestamp getFechaIngreso() {
 		return this.fechaIngreso;
 	}
 
-	public void setFechaIngreso(Timestamp fechaIngreso) {
+    /**
+     *
+     * @param fechaIngreso
+     */
+    public void setFechaIngreso(Timestamp fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	@Column(name = "fechaModificacion", length = 45)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaModificacion", length = 45)
 	public String getFechaModificacion() {
 		return this.fechaModificacion;
 	}
 
-	public void setFechaModificacion(String fechaModificacion) {
+    /**
+     *
+     * @param fechaModificacion
+     */
+    public void setFechaModificacion(String fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ejecutivos")
+    /**
+     *
+     * @return
+     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "ejecutivos")
 	public Set<Proceso> getProcesos() {
 		return this.procesos;
 	}
 
-	public void setProcesos(Set<Proceso> procesos) {
+    /**
+     *
+     * @param procesos
+     */
+    public void setProcesos(Set<Proceso> procesos) {
 		this.procesos = procesos;
 	}
 

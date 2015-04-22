@@ -1,22 +1,16 @@
 package cl.intelidata.amicar.beans;
 
+/**
+ *
+ * @author Maze
+ */
 public class Datos {
-	/*******************************************************************************************************/
-	/********************************************** Atributos **********************************************/
-	/*******************************************************************************************************/
 	private String strLinea = "";
-
-	/*******************************************************************************************************/
-	/******************************************** Constructores ********************************************/
-	/*******************************************************************************************************/
 
 	public Datos(String strLinea) {
 		this.strLinea = strLinea;
 	}
 
-	/*******************************************************************************************************/
-	/*********************************************** Metodos ***********************************************/
-	/*******************************************************************************************************/
 	public String extraer(int iPosicion) {
 		String string = "";
 		if (this.strLinea != null) {
@@ -26,14 +20,7 @@ public class Datos {
 		return string;
 	}
 
-	/**
-	 * Separa la linea en columnas, segun el separador que tenga
-	 * 
-	 * @param strLinea
-	 *            Linea a separar
-	 * @return Devuelve un arreglo con la linea separada
-	 */
-	private String[] separarColumnas(String strLinea) {
+        private String[] separarColumnas(String strLinea) {
 		String separador = asignarSeparador(strLinea);
 		if (!strLinea.endsWith(separador)) {
 			strLinea = strLinea + separador;
@@ -44,13 +31,6 @@ public class Datos {
 		return string;
 	}
 
-	/**
-	 * Asigna el tipo de separador que utiliza el archivo
-	 * 
-	 * @param strLinea
-	 *            Linea a analizar
-	 * @return Devuelve el separador
-	 */
 	private String asignarSeparador(String strLinea) {
 		String string = "\\|";
 		if (strLinea.contains("\\|")) {
