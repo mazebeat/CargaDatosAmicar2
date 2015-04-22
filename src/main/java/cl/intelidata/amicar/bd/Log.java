@@ -17,12 +17,18 @@ public class Log extends AbstractLog implements java.io.Serializable {
 	public Log() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idlog */
 	public Log(Integer idlog) {
 		super(idlog);
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idlog
+     * @param fechaLog
+     * @param idCliente
+     * @param idVendedor
+     * @param idEjecutivo */
 	public Log(Integer idlog, Integer idVendedor, Integer idCliente,
 			Integer idEjecutivo, Timestamp fechaLog) {
 		super(idlog, idVendedor, idCliente, idEjecutivo, fechaLog);

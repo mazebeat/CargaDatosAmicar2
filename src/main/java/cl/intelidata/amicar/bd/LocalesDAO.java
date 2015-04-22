@@ -18,7 +18,11 @@ import javax.persistence.Query;
  */
 public class LocalesDAO implements ILocalesDAO {
 	// property constants
-	public static final String NOMBRE_LOCAL = "nombreLocal";
+
+    /**
+     *
+     */
+    	public static final String NOMBRE_LOCAL = "nombreLocal";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -122,7 +126,12 @@ public class LocalesDAO implements ILocalesDAO {
 		}
 	}
 
-	public Locales findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Locales findById(Integer id) {
 		EntityManagerHelper.log("finding Locales instance with id: " + id,
 				Level.INFO, null);
 		try {
@@ -179,7 +188,13 @@ public class LocalesDAO implements ILocalesDAO {
 		}
 	}
 
-	public List<Locales> findByNombreLocal(Object nombreLocal,
+    /**
+     *
+     * @param nombreLocal
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Locales> findByNombreLocal(Object nombreLocal,
 			int... rowStartIdxAndCount) {
 		return findByProperty(NOMBRE_LOCAL, nombreLocal, rowStartIdxAndCount);
 	}

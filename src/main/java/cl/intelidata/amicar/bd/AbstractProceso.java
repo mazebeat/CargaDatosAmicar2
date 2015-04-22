@@ -33,7 +33,10 @@ public abstract class AbstractProceso implements java.io.Serializable {
 	public AbstractProceso() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param ejecutivos
+     * @param clientesdiario
+     * @param vendedores */
 	public AbstractProceso(Ejecutivos ejecutivos, Clientesdiario clientesdiario,
 			Vendedores vendedores) {
 		this.ejecutivos = ejecutivos;
@@ -41,8 +44,14 @@ public abstract class AbstractProceso implements java.io.Serializable {
 		this.vendedores = vendedores;
 	}
 
-	/** full constructor */
-	public AbstractProceso(Ejecutivos ejecutivos, Clientesdiario clientesdiario,
+	/** full constructor
+     * @param ejecutivos
+     * @param fechaClickLink
+     * @param vendedores
+     * @param fechaEnvio
+     * @param clientesdiario
+     * @param fechaAperturaMail */
+	public AbstractProceso(Ejecutivos ejecutivos,  Clientesdiario clientesdiario,
 			Vendedores vendedores, Timestamp fechaEnvio,
 			Timestamp fechaAperturaMail, Timestamp fechaClickLink) {
 		this.ejecutivos = ejecutivos;
@@ -54,71 +63,128 @@ public abstract class AbstractProceso implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "idProceso", unique = true, nullable = false)
 	public Integer getIdProceso() {
 		return this.idProceso;
 	}
 
-	public void setIdProceso(Integer idProceso) {
+    /**
+     *
+     * @param idProceso
+     */
+    public void setIdProceso(Integer idProceso) {
 		this.idProceso = idProceso;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    /**
+     *
+     * @return
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ejecutivos_idEjecutivo", nullable = false)
 	public Ejecutivos getEjecutivos() {
 		return this.ejecutivos;
 	}
 
-	public void setEjecutivos(Ejecutivos ejecutivos) {
+    /**
+     *
+     * @param ejecutivos
+     */
+    public void setEjecutivos(Ejecutivos ejecutivos) {
 		this.ejecutivos = ejecutivos;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    /**
+     *
+     * @return
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "clientes_idCliente", nullable = false)
 	public Clientesdiario getClientesdiario() {
 		return this.clientesdiario;
 	}
 
-	public void setClientesdiario(Clientesdiario clientesdiario) {
+    /**
+     *
+     * @param clientesdiario
+     */
+    public void setClientesdiario(Clientesdiario clientesdiario) {
 		this.clientesdiario = clientesdiario;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    /**
+     *
+     * @return
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "vendedores_idVendedor", nullable = false)
 	public Vendedores getVendedores() {
 		return this.vendedores;
 	}
 
-	public void setVendedores(Vendedores vendedores) {
+    /**
+     *
+     * @param vendedores
+     */
+    public void setVendedores(Vendedores vendedores) {
 		this.vendedores = vendedores;
 	}
 
-	@Column(name = "fechaEnvio", length = 19)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaEnvio", length = 19)
 	public Timestamp getFechaEnvio() {
 		return this.fechaEnvio;
 	}
 
-	public void setFechaEnvio(Timestamp fechaEnvio) {
+    /**
+     *
+     * @param fechaEnvio
+     */
+    public void setFechaEnvio(Timestamp fechaEnvio) {
 		this.fechaEnvio = fechaEnvio;
 	}
 
-	@Column(name = "fechaAperturaMail", length = 19)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaAperturaMail", length = 19)
 	public Timestamp getFechaAperturaMail() {
 		return this.fechaAperturaMail;
 	}
 
-	public void setFechaAperturaMail(Timestamp fechaAperturaMail) {
+    /**
+     *
+     * @param fechaAperturaMail
+     */
+    public void setFechaAperturaMail(Timestamp fechaAperturaMail) {
 		this.fechaAperturaMail = fechaAperturaMail;
 	}
 
-	@Column(name = "fechaClickLink", length = 19)
+    /**
+     *
+     * @return
+     */
+    @Column(name = "fechaClickLink", length = 19)
 	public Timestamp getFechaClickLink() {
 		return this.fechaClickLink;
 	}
 
-	public void setFechaClickLink(Timestamp fechaClickLink) {
+    /**
+     *
+     * @param fechaClickLink
+     */
+    public void setFechaClickLink(Timestamp fechaClickLink) {
 		this.fechaClickLink = fechaClickLink;
 	}
 

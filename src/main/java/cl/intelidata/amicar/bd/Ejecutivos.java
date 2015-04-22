@@ -19,12 +19,19 @@ public class Ejecutivos extends AbstractEjecutivos implements
 	public Ejecutivos() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param locales */
 	public Ejecutivos(Locales locales) {
 		super(locales);
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param locales
+     * @param nombreEjecutivo
+     * @param correoEjecutivo
+     * @param fechaIngreso
+     * @param fechaModificacion
+     * @param procesos */
 	public Ejecutivos(Locales locales, String nombreEjecutivo,
 			String correoEjecutivo, Timestamp fechaIngreso,
 			String fechaModificacion, Set<Proceso> procesos) {

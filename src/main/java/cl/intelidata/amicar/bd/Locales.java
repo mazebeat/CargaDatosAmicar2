@@ -17,7 +17,10 @@ public class Locales extends AbstractLocales implements java.io.Serializable {
 	public Locales() {
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param nombreLocal
+     * @param vendedoreses
+     * @param ejecutivoses */
 	public Locales(String nombreLocal, Set<Vendedores> vendedoreses,
 			Set<Ejecutivos> ejecutivoses) {
 		super(nombreLocal, vendedoreses, ejecutivoses);

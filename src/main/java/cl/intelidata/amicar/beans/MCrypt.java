@@ -1,12 +1,13 @@
 package cl.intelidata.amicar.beans;
 
-import cl.intelidata.amicar.referencias.Texto;
+import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.NoSuchAlgorithmException;
+
+import cl.intelidata.amicar.referencias.Texto;
 
 /**
  * Created by Maze on 04-03-2015.
@@ -16,7 +17,10 @@ public class MCrypt {
 	private SecretKeySpec   keyspec;
 	private Cipher          cipher;
 
-	public MCrypt() {
+    /**
+     *
+     */
+    public MCrypt() {
 		this.ivspec = new IvParameterSpec(Texto.IV.getBytes());
 
 		this.keyspec = new SecretKeySpec(Texto.KEY.getBytes(), "AES");

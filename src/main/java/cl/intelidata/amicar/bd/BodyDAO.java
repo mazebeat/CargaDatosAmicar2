@@ -16,7 +16,11 @@ import javax.persistence.Query;
  */
 public class BodyDAO implements IBodyDAO {
 	// property constants
-	public static final String BODY_NOMBRE = "bodyNombre";
+
+    /**
+     *
+     */
+    	public static final String BODY_NOMBRE = "bodyNombre";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -119,7 +123,12 @@ public class BodyDAO implements IBodyDAO {
 		}
 	}
 
-	public Body findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Body findById(Integer id) {
 		EntityManagerHelper.log("finding Body instance with id: " + id,
 				Level.INFO, null);
 		try {
@@ -176,7 +185,13 @@ public class BodyDAO implements IBodyDAO {
 		}
 	}
 
-	public List<Body> findByBodyNombre(Object bodyNombre,
+    /**
+     *
+     * @param bodyNombre
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Body> findByBodyNombre(Object bodyNombre,
 			int... rowStartIdxAndCount) {
 		return findByProperty(BODY_NOMBRE, bodyNombre, rowStartIdxAndCount);
 	}

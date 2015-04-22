@@ -18,15 +18,66 @@ import javax.persistence.Query;
  */
 public class ClientesdiarioDAO implements IClientesdiarioDAO {
 	// property constants
-	public static final String RUT_CLIENTE = "rutCliente";
-	public static final String EMAIL_CLIENTE = "emailCliente";
-	public static final String NOMBRE_CLIENTE = "nombreCliente";
-	public static final String SEXO_CLIENTE = "sexoCliente";
-	public static final String FONO_CLIENTE = "fonoCliente";
-	public static final String AUTOMOVIL_CLIENTE = "automovilCliente";
-	public static final String ID_GRUPO = "idGrupo";
-	public static final String ID_BODY = "idBody";
-	public static final String NOMBRE_JRN = "nombreJrn";
+
+    /**
+     *
+     */
+    	public static final String RUT_CLIENTE = "rutCliente";
+
+    /**
+     *
+     */
+    public static final String EMAIL_CLIENTE = "emailCliente";
+
+    /**
+     *
+     */
+    public static final String NOMBRE_CLIENTE = "nombreCliente";
+
+    /**
+     *
+     */
+    public static final String FONO_CELULAR = "fonoCelular";
+
+    /**
+     *
+     */
+    public static final String FONO_COMERCIAL = "fonoComercial";
+
+    /**
+     *
+     */
+    public static final String FONO_PARTICULAR = "fonoParticular";
+
+    /**
+     *
+     */
+    public static final String MARCA_AUTO = "marcaAuto";
+
+    /**
+     *
+     */
+    public static final String MODELO_AUTO = "modeloAuto";
+
+    /**
+     *
+     */
+    public static final String VALOR_AUTO = "valorAuto";
+
+    /**
+     *
+     */
+    public static final String ID_GRUPO = "idGrupo";
+
+    /**
+     *
+     */
+    public static final String ID_BODY = "idBody";
+
+    /**
+     *
+     */
+    public static final String NOMBRE_JRN = "nombreJrn";
 
 	private EntityManager getEntityManager() {
 		return EntityManagerHelper.getEntityManager();
@@ -134,7 +185,12 @@ public class ClientesdiarioDAO implements IClientesdiarioDAO {
 		}
 	}
 
-	public Clientesdiario findById(Integer id) {
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Clientesdiario findById(Integer id) {
 		EntityManagerHelper.log("finding Clientesdiario instance with id: "
 				+ id, Level.INFO, null);
 		try {
@@ -193,49 +249,137 @@ public class ClientesdiarioDAO implements IClientesdiarioDAO {
 		}
 	}
 
-	public List<Clientesdiario> findByRutCliente(Object rutCliente,
+    /**
+     *
+     * @param rutCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByRutCliente(Object rutCliente,
 			int... rowStartIdxAndCount) {
 		return findByProperty(RUT_CLIENTE, rutCliente, rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByEmailCliente(Object emailCliente,
+    /**
+     *
+     * @param emailCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByEmailCliente(Object emailCliente,
 			int... rowStartIdxAndCount) {
 		return findByProperty(EMAIL_CLIENTE, emailCliente, rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByNombreCliente(Object nombreCliente,
+    /**
+     *
+     * @param nombreCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByNombreCliente(Object nombreCliente,
 			int... rowStartIdxAndCount) {
 		return findByProperty(NOMBRE_CLIENTE, nombreCliente,
 				rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findBySexoCliente(Object sexoCliente,
+    /**
+     *
+     * @param fonoCelular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByFonoCelular(Object fonoCelular,
 			int... rowStartIdxAndCount) {
-		return findByProperty(SEXO_CLIENTE, sexoCliente, rowStartIdxAndCount);
+		return findByProperty(FONO_CELULAR, fonoCelular, rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByFonoCliente(Object fonoCliente,
+    /**
+     *
+     * @param fonoComercial
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByFonoComercial(Object fonoComercial,
 			int... rowStartIdxAndCount) {
-		return findByProperty(FONO_CLIENTE, fonoCliente, rowStartIdxAndCount);
-	}
-
-	public List<Clientesdiario> findByAutomovilCliente(Object automovilCliente,
-			int... rowStartIdxAndCount) {
-		return findByProperty(AUTOMOVIL_CLIENTE, automovilCliente,
+		return findByProperty(FONO_COMERCIAL, fonoComercial,
 				rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByIdGrupo(Object idGrupo,
+    /**
+     *
+     * @param fonoParticular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByFonoParticular(Object fonoParticular,
+			int... rowStartIdxAndCount) {
+		return findByProperty(FONO_PARTICULAR, fonoParticular,
+				rowStartIdxAndCount);
+	}
+
+    /**
+     *
+     * @param marcaAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByMarcaAuto(Object marcaAuto,
+			int... rowStartIdxAndCount) {
+		return findByProperty(MARCA_AUTO, marcaAuto, rowStartIdxAndCount);
+	}
+
+    /**
+     *
+     * @param modeloAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByModeloAuto(Object modeloAuto,
+			int... rowStartIdxAndCount) {
+		return findByProperty(MODELO_AUTO, modeloAuto, rowStartIdxAndCount);
+	}
+
+    /**
+     *
+     * @param valorAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByValorAuto(Object valorAuto,
+			int... rowStartIdxAndCount) {
+		return findByProperty(VALOR_AUTO, valorAuto, rowStartIdxAndCount);
+	}
+
+    /**
+     *
+     * @param idGrupo
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByIdGrupo(Object idGrupo,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_GRUPO, idGrupo, rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByIdBody(Object idBody,
+    /**
+     *
+     * @param idBody
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByIdBody(Object idBody,
 			int... rowStartIdxAndCount) {
 		return findByProperty(ID_BODY, idBody, rowStartIdxAndCount);
 	}
 
-	public List<Clientesdiario> findByNombreJrn(Object nombreJrn,
+    /**
+     *
+     * @param nombreJrn
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientesdiario> findByNombreJrn(Object nombreJrn,
 			int... rowStartIdxAndCount) {
 		return findByProperty(NOMBRE_JRN, nombreJrn, rowStartIdxAndCount);
 	}

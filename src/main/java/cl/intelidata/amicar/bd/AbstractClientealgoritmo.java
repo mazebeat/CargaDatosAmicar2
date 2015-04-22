@@ -23,12 +23,16 @@ public abstract class AbstractClientealgoritmo implements java.io.Serializable {
 	public AbstractClientealgoritmo() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idClienteAlgoritmo */
 	public AbstractClientealgoritmo(Integer idClienteAlgoritmo) {
 		this.idClienteAlgoritmo = idClienteAlgoritmo;
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idClienteAlgoritmo
+     * @param idBody
+     * @param idCliente */
 	public AbstractClientealgoritmo(Integer idClienteAlgoritmo,
 			Integer idCliente, Integer idBody) {
 		this.idClienteAlgoritmo = idClienteAlgoritmo;
@@ -37,31 +41,56 @@ public abstract class AbstractClientealgoritmo implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@Column(name = "idClienteAlgoritmo", unique = true, nullable = false)
 	public Integer getIdClienteAlgoritmo() {
 		return this.idClienteAlgoritmo;
 	}
 
-	public void setIdClienteAlgoritmo(Integer idClienteAlgoritmo) {
+    /**
+     *
+     * @param idClienteAlgoritmo
+     */
+    public void setIdClienteAlgoritmo(Integer idClienteAlgoritmo) {
 		this.idClienteAlgoritmo = idClienteAlgoritmo;
 	}
 
-	@Column(name = "idCliente")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "idCliente")
 	public Integer getIdCliente() {
 		return this.idCliente;
 	}
 
-	public void setIdCliente(Integer idCliente) {
+    /**
+     *
+     * @param idCliente
+     */
+    public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
 
-	@Column(name = "idBody")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "idBody")
 	public Integer getIdBody() {
 		return this.idBody;
 	}
 
-	public void setIdBody(Integer idBody) {
+    /**
+     *
+     * @param idBody
+     */
+    public void setIdBody(Integer idBody) {
 		this.idBody = idBody;
 	}
 

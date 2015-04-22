@@ -17,12 +17,16 @@ public class Clientealgoritmo extends AbstractClientealgoritmo implements
 	public Clientealgoritmo() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param idClienteAlgoritmo */
 	public Clientealgoritmo(Integer idClienteAlgoritmo) {
 		super(idClienteAlgoritmo);
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param idClienteAlgoritmo
+     * @param idCliente
+     * @param idBody */
 	public Clientealgoritmo(Integer idClienteAlgoritmo, Integer idCliente,
 			Integer idBody) {
 		super(idClienteAlgoritmo, idCliente, idBody);

@@ -79,7 +79,12 @@ public interface IClientessemanalDAO {
 	 */
 	public Clientessemanal update(Clientessemanal entity);
 
-	public Clientessemanal findById(Integer id);
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Clientessemanal findById(Integer id);
 
 	/**
 	 * Find all Clientessemanal entities with a specific property value.
@@ -98,31 +103,112 @@ public interface IClientessemanalDAO {
 	public List<Clientessemanal> findByProperty(String propertyName,
 			Object value, int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByRutCliente(Object rutCliente,
+    /**
+     *
+     * @param rutCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByRutCliente(Object rutCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByEmailCliente(Object emailCliente,
+    /**
+     *
+     * @param emailCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByEmailCliente(Object emailCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByNombreCliente(Object nombreCliente,
+    /**
+     *
+     * @param nombreCliente
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByNombreCliente(Object nombreCliente,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findBySexoCliente(Object sexoCliente,
+    /**
+     *
+     * @param fonoCelular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByFonoCelular(Object fonoCelular,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByFonoCliente(Object fonoCliente,
+    /**
+     *
+     * @param fonoComercial
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByFonoComercial(Object fonoComercial,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByAutomovilCliente(
-			Object automovilCliente, int... rowStartIdxAndCount);
-
-	public List<Clientessemanal> findByIdGrupo(Object idGrupo,
+    /**
+     *
+     * @param fonoParticular
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByFonoParticular(Object fonoParticular,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByIdBody(Object idBody,
+    /**
+     *
+     * @param marcaAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByMarcaAuto(Object marcaAuto,
 			int... rowStartIdxAndCount);
 
-	public List<Clientessemanal> findByNombreJrn(Object nombreJrn,
+    /**
+     *
+     * @param modeloAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByModeloAuto(Object modeloAuto,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param valorAuto
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByValorAuto(Object valorAuto,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param idGrupo
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByIdGrupo(Object idGrupo,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param idBody
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByIdBody(Object idBody,
+			int... rowStartIdxAndCount);
+
+    /**
+     *
+     * @param nombreJrn
+     * @param rowStartIdxAndCount
+     * @return
+     */
+    public List<Clientessemanal> findByNombreJrn(Object nombreJrn,
 			int... rowStartIdxAndCount);
 
 	/**

@@ -18,12 +18,17 @@ public class Vendedores extends AbstractVendedores implements
 	public Vendedores() {
 	}
 
-	/** minimal constructor */
+	/** minimal constructor
+     * @param locales */
 	public Vendedores(Locales locales) {
 		super(locales);
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param locales
+     * @param nombreVendedor
+     * @param rutVendedor
+     * @param procesos */
 	public Vendedores(Locales locales, String rutVendedor,
 			String nombreVendedor, Set<Proceso> procesos) {
 		super(locales, rutVendedor, nombreVendedor, procesos);

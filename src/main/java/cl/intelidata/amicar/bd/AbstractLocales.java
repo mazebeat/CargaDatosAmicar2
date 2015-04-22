@@ -31,7 +31,10 @@ public abstract class AbstractLocales implements java.io.Serializable {
 	public AbstractLocales() {
 	}
 
-	/** full constructor */
+	/** full constructor
+     * @param nombreLocal
+     * @param vendedoreses
+     * @param ejecutivoses */
 	public AbstractLocales(String nombreLocal, Set<Vendedores> vendedoreses,
 			Set<Ejecutivos> ejecutivoses) {
 		this.nombreLocal = nombreLocal;
@@ -40,41 +43,74 @@ public abstract class AbstractLocales implements java.io.Serializable {
 	}
 
 	// Property accessors
-	@Id
+
+    /**
+     *
+     * @return
+     */
+    	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "idLocal", unique = true, nullable = false)
 	public Integer getIdLocal() {
 		return this.idLocal;
 	}
 
-	public void setIdLocal(Integer idLocal) {
+    /**
+     *
+     * @param idLocal
+     */
+    public void setIdLocal(Integer idLocal) {
 		this.idLocal = idLocal;
 	}
 
-	@Column(name = "nombreLocal")
+    /**
+     *
+     * @return
+     */
+    @Column(name = "nombreLocal")
 	public String getNombreLocal() {
 		return this.nombreLocal;
 	}
 
-	public void setNombreLocal(String nombreLocal) {
+    /**
+     *
+     * @param nombreLocal
+     */
+    public void setNombreLocal(String nombreLocal) {
 		this.nombreLocal = nombreLocal;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "locales")
+    /**
+     *
+     * @return
+     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "locales")
 	public Set<Vendedores> getVendedoreses() {
 		return this.vendedoreses;
 	}
 
-	public void setVendedoreses(Set<Vendedores> vendedoreses) {
+    /**
+     *
+     * @param vendedoreses
+     */
+    public void setVendedoreses(Set<Vendedores> vendedoreses) {
 		this.vendedoreses = vendedoreses;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "locales")
+    /**
+     *
+     * @return
+     */
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "locales")
 	public Set<Ejecutivos> getEjecutivoses() {
 		return this.ejecutivoses;
 	}
 
-	public void setEjecutivoses(Set<Ejecutivos> ejecutivoses) {
+    /**
+     *
+     * @param ejecutivoses
+     */
+    public void setEjecutivoses(Set<Ejecutivos> ejecutivoses) {
 		this.ejecutivoses = ejecutivoses;
 	}
 
