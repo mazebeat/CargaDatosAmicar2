@@ -4,7 +4,7 @@ import static cl.intelidata.amicar.conf.Configuracion.logger;
 import cl.intelidata.amicar.componente.Procesa;
 import cl.intelidata.amicar.conf.Configuracion;
 
-public class CargaDatosAmicar {
+public class CargaDatosAmicar2 {
 
 	/**
 	 * @param args

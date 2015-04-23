@@ -110,7 +110,7 @@ public class ConsultasDB {
 		EntityManager em = null;
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
-			List<Locales> locales = new ArrayList<Locales>();			
+			List<Locales> locales = new ArrayList<Locales>();
 			Query query = em
 					.createQuery("SELECT c FROM Locales c WHERE c.nombreLocal = :nombreLocal");
 			query.setParameter("nombreLocal", nombreLocal);
@@ -197,7 +197,7 @@ public class ConsultasDB {
 		}
 		return ejecutivo;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public Ejecutivos buscarEjecutivoVigentePorLocal(String strDescripcion) {
 		Ejecutivos ejecutivo = null;
@@ -245,7 +245,7 @@ public class ConsultasDB {
 			}
 		}
 	}
-	
+
 	private Clientesdiario clientD(String rut) throws Exception {
 		Clientesdiario cliente = null;
 		EntityManager em = null;
@@ -353,4 +353,41 @@ public class ConsultasDB {
 		return false;
 	}
 
+	public String searchBodyIdByCliente(String rut, String email) {
+		String id = "";
+		EntityManager em = null;
+		List<Clientesdiario> clientes = new ArrayList<Clientesdiario>();
+
+		try {
+			em = EntityHelper.getInstance().getEntityManager();
+
+			Query query = em
+					.createQuery("SELECT c.idBody FROM Clientesdiario c WHERE c.rutCliente = :rutCliente AND c.emailCliente = :emailCliente");
+			query.setParameter("rutCliente", rut);
+			query.setParameter("emailCliente", email);
+			@SuppressWarnings("rawtypes")
+			List list = query.getResultList();
+			if (list == null || list.isEmpty()) {
+				return "";
+			} else {
+
+				id = list.get(0).toString();
+
+				if (id != "") {
+					logger.info("SE HA ENCONTRADO CLIENTE: {}", id);
+				}
+			}
+		} catch (Exception e) {
+			logger.error("Error en consulta {}", e);
+		} finally {
+			if (em != null && em.isOpen()) {
+				if (em.getTransaction().isActive()) {
+					em.getTransaction().rollback();
+				}
+				em.close();
+			}
+		}
+
+		return id;
+	}
 }
