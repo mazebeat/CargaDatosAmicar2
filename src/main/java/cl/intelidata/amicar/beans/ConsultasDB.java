@@ -8,11 +8,14 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.StoredProcedureQuery;
 
 import cl.intelidata.amicar.bd.Clientesdiario;
+import cl.intelidata.amicar.bd.Correoserrorformato;
 import cl.intelidata.amicar.bd.Ejecutivos;
 import cl.intelidata.amicar.bd.Locales;
 import cl.intelidata.amicar.bd.Proceso;
+import cl.intelidata.amicar.bd.Ejecutivos;
 import cl.intelidata.amicar.bd.Vendedores;
 import cl.intelidata.amicar.conf.EntityHelper;
 
@@ -111,8 +114,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Locales> locales = new ArrayList<Locales>();
-			Query query = em
-					.createQuery("SELECT c FROM Locales c WHERE c.nombreLocal = :nombreLocal");
+			Query query = em.createQuery("SELECT c FROM Locales c WHERE c.nombreLocal = :nombreLocal");
 			query.setParameter("nombreLocal", nombreLocal);
 			locales = query.getResultList();
 
@@ -177,8 +179,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Ejecutivos> ejecutivos = new ArrayList<Ejecutivos>();
-			Query query = em
-					.createQuery("SELECT c FROM Clientesdiario c WHERE c.correEjecutivo = :correEjecutivo");
+			Query query = em.createQuery("SELECT c FROM Clientesdiario c WHERE c.correEjecutivo = :correEjecutivo");
 			query.setParameter("correEjecutivo", email);
 			ejecutivos = query.getResultList();
 
@@ -205,8 +206,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Ejecutivos> ejecutivos = new ArrayList<Ejecutivos>();
-			Query query = em
-					.createQuery("SELECT e FROM Ejecutivos e WHERE e.locales.nombreLocal = :strLocal");
+			Query query = em.createQuery("SELECT e FROM Ejecutivos e WHERE e.locales.nombreLocal = :strLocal");
 			query.setParameter("strLocal", strDescripcion);
 			ejecutivos = query.getResultList();
 
@@ -252,8 +252,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Clientesdiario> clientes = new ArrayList<Clientesdiario>();
-			Query query = em
-					.createQuery("SELECT c FROM Clientesdiario c WHERE c.rutCliente = :rutCliente");
+			Query query = em.createQuery("SELECT c FROM Clientesdiario c WHERE c.rutCliente = :rutCliente");
 			query.setParameter("rutCliente", rut);
 			clientes = query.getResultList();
 
@@ -303,8 +302,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Vendedores> vendedores = new ArrayList<Vendedores>();
-			Query query = em
-					.createQuery("SELECT v FROM Vendedores v WHERE v.rutVendedor = :rutVendedor");
+			Query query = em.createQuery("SELECT v FROM Vendedores v WHERE v.rutVendedor = :rutVendedor");
 			query.setParameter("rutVendedor", rut);
 			vendedores = query.getResultList();
 
@@ -330,8 +328,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 			List<Proceso> procesos = new ArrayList<Proceso>();
-			Query query = em
-					.createQuery("SELECT p FROM Proceso p WHERE p.clientesdiario = :clientesdiario AND p.fechaEnvio = :fechaEnvio");
+			Query query = em.createQuery("SELECT p FROM Proceso p WHERE p.clientesdiario = :clientesdiario AND p.fechaEnvio = :fechaEnvio");
 			query.setParameter("clientesdiario", c);
 			query.setParameter("fechaEnvio", f);
 			procesos = query.getResultList();
@@ -361,8 +358,7 @@ public class ConsultasDB {
 		try {
 			em = EntityHelper.getInstance().getEntityManager();
 
-			Query query = em
-					.createQuery("SELECT c.idBody FROM Clientesdiario c WHERE c.rutCliente = :rutCliente AND c.emailCliente = :emailCliente");
+			Query query = em.createQuery("SELECT c.idBody FROM Clientesdiario c WHERE c.rutCliente = :rutCliente AND c.emailCliente = :emailCliente");
 			query.setParameter("rutCliente", rut);
 			query.setParameter("emailCliente", email);
 			@SuppressWarnings("rawtypes")
@@ -390,4 +386,85 @@ public class ConsultasDB {
 
 		return id;
 	}
+
+	public void runStoredProcedure() {
+		EntityManager em = null;
+		try {
+			logger.info("Ejecutando SP");
+
+			em = EntityHelper.getInstance().getEntityManager();
+			String q = "CALL `amicarcotizante2`.`ADD_BODY_MAIL_AMICAR`();";
+			Object o = em.createNativeQuery(q).getSingleResult();
+			logger.info(o.toString());
+			// StoredProcedureQuery storedProcedure =
+			// em.createStoredProcedureQuery("ADD_BODY_MAIL_AMICAR");
+			// storedProcedure.execute();
+
+		} catch (Exception e) {
+			logger.error("Error en consulta {}", e);
+		} finally {
+			if (em != null && em.isOpen()) {
+				if (em.getTransaction().isActive()) {
+					em.getTransaction().rollback();
+				}
+				em.close();
+			}
+		}
+	}
+
+	public Ejecutivos buscarEjecutivoVigentePorRut(String rutEjecutivo) {
+		Ejecutivos ejecutivo = null;
+		EntityManager em = null;
+		try {
+			em = EntityHelper.getInstance().getEntityManager();
+			List<Ejecutivos> ejecutivos = new ArrayList<Ejecutivos>();
+			Query query = em.createQuery("SELECT e FROM Ejecutivos e WHERE e.rutEjecutivo = :rutEjecutivo");
+			query.setParameter("rutEjecutivo", rutEjecutivo);
+			ejecutivos = query.getResultList();
+
+			for (Ejecutivos v : ejecutivos) {
+				ejecutivo = v;
+			}
+		} catch (Exception e) {
+			logger.error("Error en consulta ", e);
+		} finally {
+			if (em != null && em.isOpen()) {
+				if (em.getTransaction().isActive()) {
+					em.getTransaction().rollback();
+				}
+				em.close();
+			}
+		}
+
+		return ejecutivo;
+    }
+
+	@SuppressWarnings("unchecked")
+    public boolean buscarClienteError(String rutCliente) {
+		boolean response = false;
+		EntityManager em = null;
+		try {
+			em = EntityHelper.getInstance().getEntityManager();
+			List<Correoserrorformato> errores = new ArrayList<Correoserrorformato>();
+			Query query = em.createQuery("SELECT c FROM Correoserrorformato c WHERE c.rutCliente = :rutCliente");
+			query.setParameter("rutCliente", rutCliente);
+			errores = query.getResultList();
+			
+			if(errores.size() > 0) {
+				response = true;
+			}
+		} catch (Exception e) {
+			logger.error("Error en consulta ", e);
+		} finally {
+			if (em != null && em.isOpen()) {
+				if (em.getTransaction().isActive()) {
+					em.getTransaction().rollback();
+				}
+				em.close();
+			}
+		}
+
+		return response;
+	    
+    }
 }

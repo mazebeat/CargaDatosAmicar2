@@ -1,9 +1,6 @@
 package cl.intelidata.amicar.beans;
 
-/**
- *
- * @author Maze
- */
+
 public class Datos {
 	private String strLinea = "";
 
