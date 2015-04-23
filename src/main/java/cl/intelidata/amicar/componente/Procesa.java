@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.StoredProcedureQuery;
-
 import cl.intelidata.amicar.bd.Clientesdiario;
 import cl.intelidata.amicar.bd.Ejecutivos;
 import cl.intelidata.amicar.bd.Locales;
@@ -18,8 +15,6 @@ import cl.intelidata.amicar.bd.Vendedores;
 import cl.intelidata.amicar.beans.Archivo;
 import cl.intelidata.amicar.beans.ConsultasDB;
 import cl.intelidata.amicar.beans.Datos;
-import cl.intelidata.amicar.conf.Configuracion;
-import cl.intelidata.amicar.conf.EntityHelper;
 import cl.intelidata.amicar.referencias.Texto;
 
 public class Procesa {

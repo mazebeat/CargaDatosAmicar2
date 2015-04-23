@@ -8,14 +8,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.StoredProcedureQuery;
 
 import cl.intelidata.amicar.bd.Clientesdiario;
 import cl.intelidata.amicar.bd.Correoserrorformato;
 import cl.intelidata.amicar.bd.Ejecutivos;
 import cl.intelidata.amicar.bd.Locales;
 import cl.intelidata.amicar.bd.Proceso;
-import cl.intelidata.amicar.bd.Ejecutivos;
 import cl.intelidata.amicar.bd.Vendedores;
 import cl.intelidata.amicar.conf.EntityHelper;
 
@@ -396,8 +394,8 @@ public class ConsultasDB {
 			String q = "CALL `amicarcotizante2`.`ADD_BODY_MAIL_AMICAR`();";
 			Object o = em.createNativeQuery(q).getSingleResult();
 			logger.info(o.toString());
-			// StoredProcedureQuery storedProcedure =
-			// em.createStoredProcedureQuery("ADD_BODY_MAIL_AMICAR");
+			
+			// StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("ADD_BODY_MAIL_AMICAR");
 			// storedProcedure.execute();
 
 		} catch (Exception e) {

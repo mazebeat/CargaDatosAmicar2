@@ -5,7 +5,6 @@ import static cl.intelidata.amicar.conf.Configuracion.logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import cl.intelidata.amicar.bd.Clientesdiario;
 import cl.intelidata.amicar.bd.Proceso;
 import cl.intelidata.amicar.beans.Archivo;
 import cl.intelidata.amicar.beans.ConsultasDB;
